@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>รายการสั่งซื้อ</th>
+        <th>ราคาทั้งหมด</th>
+        <th>สถานะ</th>
+      </tr>
+    </thead>
+
+    <tr *ngFor="let order of this.orders">
+      <td>{{order.id}}</td>
+      <td>{{order.allPrice}}</td>
+      <td>{{order.status}}</td>
+    </tr>
+  </table>
+
+</div>

@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div *ngIf="this.isConfirm" class="overlay" (click)="close()"></div>
+<div class="container">
+  <div class="card" style="border-radius: 2px;">
+    <div class="card-body">
+      <div class="text-center" style="font-size:25px"><b>สรุปรายการอาหาร</b></div>
+      <hr style="border: 2px solid black;">
+      <table class ="table">
+        <thead>
+          <tr>
+            <th>รายชื่ออาหาร</th>
+            <th>จำนวน</th>
+            <th>ราคา</th>
+            <th>ราคารวม</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let food of foods">
+          <td>{{food.name}}</td>
+          <td>{{food.amount}}</td>
+          <td>{{food.price}}</td>
+          <td>{{food.amount * food.price}}</td>
+          <td style="display:flex">
+            <button mat-raised-button color="warn" style="width:50%" (click)="remove(food.id)">ลบ</button>
+          </td>
+        </tr>
+      </table>
+      <hr style="border: 2px solid black;">
+      <div class="" style="margin-left:20px">ราคารายการอาหารทั้งหมด : {{this.allPrice}} บาท</div>
+    </div>
+  </div>
+  <button class="btn btn-primary" style="cursor:pointer;width:100%;" (click)="confirm()">ยืนยันการสั่งซื้อ</button>
+</div>
+<div *ngIf="this.isConfirm" class="confirmOrder">
+  <div class="column">
+    <p>ราคารายการอาหารทั้งหมด : {{this.allPrice}} บาท</p>
+    <p>ราคาส่ง : 20 บาท</p>
+    <hr style="border:2px solid red">
+    <p stlye="font-size : 25px">เงินในบัญชี : {{this.wallet}} บาท</p>
+    <p style="font-size : 25px">ราคาทั้งหมดที่ต้องจ่าย : {{this.allPrice + this.deliveryPrice}}</p>
+  </div>
+  <div class="column">
+    ที่อยู่จัดส่ง
+
+      <textarea type="text" class="form-control" style="height: 80px;" required></textarea>
+    เบอร์โทร
+    <input type="text" class="form-control" required>
+    <button class="btn btn-success" style="width:100% ; margin-top:20px" (click)="addToOrder()">ยืนยัน</button>
+    
+  </div>
+</div>
+
+
+
+

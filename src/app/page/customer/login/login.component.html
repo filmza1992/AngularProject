@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<div class ="loginCard">
+  <div class ="container" style="border: 2px outset rgb(0, 0, 0);">
+    <label style="font-size:35px ;">Log in</label>
+    <hr style="border:2px  solid rgb(234, 38, 38)">
+      <div class = "form-group">
+        <label for="username">Username</label>
+        <input #username type="text" class ="form-control" name ="username" id="username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input #password type="password" class="form-control" name="password" id="password">
+      </div>
+      <button mat-raised-button color="warn" (click)="goGoodsPage(username.value , password.value)">Confirm</button>
+
+  </div>
+</div>

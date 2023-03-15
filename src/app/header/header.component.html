@@ -1,0 +1,51 @@
+<div
+  *ngIf="this.isLogin == false;else showLogin">
+  <mat-toolbar id = "header"style="background-color:rgb(243, 54, 54)">
+    <mat-toolbar-row>
+      <div class="container" style ="display:flex">
+        <div class="logo">
+          <a routerLink="/">Restuarant</a>
+        </div>
+        <div class ="navbar" style="margin-left: 600px;">
+          <div class="menu">
+            <a (click)="goGoods()" style="cursor:pointer">
+              <div class>GOODS</div>
+              <div class="overlay1"></div>
+            </a>
+          </div>
+        </div>
+        <div class ="navbar">
+          <div class="menu">
+            <a (click)="goOrder()" style="cursor:pointer">
+              <div class>ORDERS</div>
+              <div class="overlay1"></div>
+            </a>
+          </div>
+        </div>
+
+        <div class ="navbar">
+          <div class="info"style="display: flex;">
+            <mat-icon style="color:white">person</mat-icon>
+            <h5 style="color:white">ID : {{this.user.username}}</h5>
+            <h5 style="color:white;margin-left:20px">Cast : {{this.user.cast}} บาท</h5>
+          </div>
+        </div>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+
+<ng-template #showLogin>
+  <div>
+    <mat-toolbar id = "header"style="background-color:rgb(243, 54, 54)">
+      <mat-toolbar-row>
+        <div class="container" style ="display:flex">
+          <div class="logo">
+            <a routerLink="/">Restuarant</a>
+          </div>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+</ng-template>
